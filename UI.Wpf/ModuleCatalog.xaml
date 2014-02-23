@@ -1,0 +1,60 @@
+﻿<prism:ModuleCatalog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:prism="clr-namespace:Microsoft.Practices.Prism.Modularity;assembly=Microsoft.Practices.Prism">
+
+    <!--<prism:ModuleInfo Ref="My.File.Name.dll"
+                      ModuleName="X.x"
+                      ModuleType="Test.ModuleDefinitions.Module, My.File.Name, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable"/>-->
+
+    <prism:ModuleInfo Ref="Owlsure.DataRepository.dll"
+                      ModuleName="DataRepository"
+                      ModuleType="Owlsure.DataRepository.ModuleDefinitions.MockModule, Owlsure.DataRepository, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable"/>
+
+    <prism:ModuleInfo Ref="Owlsure.DataServices.dll"
+                      ModuleName="DataServices"
+                      ModuleType="Owlsure.DataServices.ModuleDefinitions.Module, Owlsure.DataServices, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable">
+        <prism:ModuleInfo.DependsOn>
+            <sys:String>DataRepository</sys:String>
+        </prism:ModuleInfo.DependsOn>
+
+    </prism:ModuleInfo>
+
+    <prism:ModuleInfo Ref="Owlsure.UI.WpfCounterparty.dll"
+                      ModuleName="WpfCounterparty"
+                      ModuleType="Owlsure.UI.WpfCounterparty.ModuleDefinitions.Module, Owlsure.UI.WpfCounterparty, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable">
+        <prism:ModuleInfo.DependsOn>
+            <sys:String>DataServices</sys:String>
+        </prism:ModuleInfo.DependsOn>
+        
+    </prism:ModuleInfo>
+
+    <prism:ModuleInfo Ref="Owlsure.UI.WpfUsage.dll"
+                      ModuleName="WpfUsage"
+                      ModuleType="Owlsure.UI.WpfUsage.ModuleDefinitions.Module, Owlsure.UI.WpfUsage, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable">
+        <prism:ModuleInfo.DependsOn>
+            <sys:String>DataServices</sys:String>
+        </prism:ModuleInfo.DependsOn>
+    </prism:ModuleInfo>
+
+    <prism:ModuleInfo Ref="Owlsure.UI.WpfUsageDaily.dll"
+                      ModuleName="WpfUsageDaily"
+                      ModuleType="Owlsure.UI.WpfUsageDaily.ModuleDefinitions.Module, Owlsure.UI.WpfUsageDaily, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable">
+        <prism:ModuleInfo.DependsOn>
+            <sys:String>DataServices</sys:String>
+        </prism:ModuleInfo.DependsOn>
+    </prism:ModuleInfo>
+
+    <!--<prism:ModuleInfo Ref="Owlsure.UI.WpfGraphing.dll"
+                      ModuleName="WpfGraphing"
+                      ModuleType="Owlsure.UI.WpfGraphing.ModuleDefinitions.Module, Owlsure.UI.WpfGraphing, Version=1.0.0.0"
+                      InitializationMode="WhenAvailable">
+    </prism:ModuleInfo>-->
+
+</prism:ModuleCatalog>

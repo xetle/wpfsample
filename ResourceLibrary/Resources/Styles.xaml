@@ -1,0 +1,275 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="skin" Color="#006B6B" />
+
+    <DrawingBrush x:Key="redBackground">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <RadialGradientBrush Center="0.54326,0.45465" RadiusX="0.602049" RadiusY="1.02049" GradientOrigin="0.4326,0.45465">
+                            <GradientStop Color="#FFFFC154" Offset="0"/>
+                            <GradientStop Color="#FFE41E18" Offset="0.718518495559692"/>
+                            <GradientStop Color="#FFA50000" Offset="1"/>
+                        </RadialGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,1" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#18FFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,0.48" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="blueBackground">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <RadialGradientBrush Center="0.54326,0.45465" RadiusX="0.602049" RadiusY="1.02049" GradientOrigin="0.4326,0.45465">
+                            <GradientStop Color="#57ffe6" Offset="0"/>
+                            <GradientStop Color="#008ee7" Offset="0.718518495559692"/>
+                            <GradientStop Color="#2c0072" Offset="1"/>
+                        </RadialGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,1" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#22FFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,0.48" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="greenBackground">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <RadialGradientBrush Center="0.54326,0.45465" RadiusX="0.602049" RadiusY="1.02049" GradientOrigin="0.4326,0.45465">
+                            <GradientStop Color="#f3ff57" Offset="0"/>
+                            <GradientStop Color="#6cc715" Offset="0.718518495559692"/>
+                            <GradientStop Color="#186f00" Offset="1"/>
+                        </RadialGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,1" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#22FFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,0.48" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="blackBackground">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <RadialGradientBrush Center="0.54326,0.45465" RadiusX="0.602049" RadiusY="1.02049" GradientOrigin="0.4326,0.45465">
+                            <GradientStop Color="#8a8a8a" Offset="0"/>
+                            <GradientStop Color="#242424" Offset="0.718518495559692"/>
+                            <GradientStop Color="#000000" Offset="1"/>
+                        </RadialGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,1" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#22FFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,0.48" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="yellowBackground">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <RadialGradientBrush Center="0.54326,0.45465" RadiusX="0.602049" RadiusY="1.02049" GradientOrigin="0.4326,0.45465">
+                            <GradientStop Color="#ffffe1" Offset="0"/>
+                            <GradientStop Color="#f8e737" Offset="0.461"/>
+                            <GradientStop Color="#e79b00" Offset="1"/>
+                        </RadialGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,1" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing>
+                    <GeometryDrawing.Brush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#39FFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </GeometryDrawing.Brush>
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 1,0.48" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <LinearGradientBrush EndPoint="0.486,0.986" x:Key="OwlsureBackground" StartPoint="0.486,0">
+        <GradientStop Color="#FF646464" Offset="0" />
+        <GradientStop Color="#FFD0D0D0" Offset="1" />
+        <GradientStop Color="#FF8D8D8D" Offset="0.558" />
+        <GradientStop Color="#FF8D8D8D" Offset="0.76" />
+        <GradientStop Color="#FF747474" Offset="0.615" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="overviewBackground" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#F0F0FF" Offset="0"/>
+        <GradientStop Color="#0000A0" Offset="0.2"/>
+        <GradientStop Color="#0000A0" Offset="0.5"/>
+        <GradientStop Color="#0000A0" Offset="0.8"/>
+        <GradientStop Color="#000040" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="changeBetterBackground" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#F0FFF0" Offset="0"/>
+        <GradientStop Color="#00A000" Offset="0.25"/>
+        <GradientStop Color="#00A000" Offset="0.5"/>
+        <GradientStop Color="#00A000" Offset="0.75"/>
+        <GradientStop Color="#004000" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="changeWorseBackground" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#FFF0F0" Offset="0"/>
+        <GradientStop Color="#A00000" Offset="0.25"/>
+        <GradientStop Color="#A00000" Offset="0.5"/>
+        <GradientStop Color="#A00000" Offset="0.75"/>
+        <GradientStop Color="#400000" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="graphBackground"  StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#F0F0F0" Offset="0"/>
+        <GradientStop Color="#101020" Offset="0.2"/>
+        <GradientStop Color="#101020" Offset="0.5"/>
+        <GradientStop Color="#101020" Offset="0.8"/>
+        <GradientStop Color="#000000" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="OwlsureBorder" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="{StaticResource skin}"/>
+        <Setter Property="Background" Value="{StaticResource skin}" />
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="CornerRadius" Value="18"/>
+    </Style>
+
+    <Style x:Key="OwlsureButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Timeline1">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Timeline2">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Border Padding="4" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                        <Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.507*"/>
+                                    <RowDefinition Height="0.493*"/>
+                                </Grid.RowDefinitions>
+                                <Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow" Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+                                    <Border.Background>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                                                    <SkewTransform AngleX="0" AngleY="0"/>
+                                                    <RotateTransform Angle="0"/>
+                                                    <TranslateTransform X="-0.368" Y="-0.152"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#B28DBDFF" Offset="0"/>
+                                            <GradientStop Color="#008DBDFF" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <ContentPresenter Margin="3,5,3,5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Grid.RowSpan="2"/>
+                                <Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+                                            <GradientStop Color="#99FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#33FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+                            <Setter Property="Background" TargetName="border" Value="#CC000000"/>
+                            <Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,11 @@
+﻿<vm:UsageDailyViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:Owlsure.UI.WpfUsageDaily.ViewModels"
+    xmlns:mo="clr-namespace:Owlsure.Model;assembly=Owlsure.Model">
+
+    <vm:UsageDailyViewModel.Usages>
+        <mo:Usage Exposure="10000000" ExposureDate="Nov 14 13" Id="1" TradingLine="TradingLine1" />
+        <mo:Usage Exposure="20000000" ExposureDate="Nov 12 13" Id="2" TradingLine="TradingLine2" />
+    </vm:UsageDailyViewModel.Usages>
+</vm:UsageDailyViewModel>

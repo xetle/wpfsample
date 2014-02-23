@@ -1,0 +1,118 @@
+﻿
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="tblCounterpartyMain" EntityType="Model.Store.tblCounterpartyMain" store:Type="Tables" store:Schema="dbo" store:Name="tblCounterpartyMain">
+            <DefiningQuery>SELECT 
+      [tblCounterpartyMain].[CP_ID] AS [CP_ID], 
+      [tblCounterpartyMain].[Risk_CP_Code] AS [Risk_CP_Code], 
+      [tblCounterpartyMain].[Counterparty_Name] AS [Counterparty_Name], 
+      [tblCounterpartyMain].[Status] AS [Status], 
+      [tblCounterpartyMain].[CP_Type] AS [CP_Type]
+      FROM [dbo].[tblCounterpartyMain] AS [tblCounterpartyMain]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblUsage" EntityType="Model.Store.tblUsage" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      -->
+        <EntityType Name="tblCounterpartyMain">
+          <Key>
+            <PropertyRef Name="CP_ID" />
+            
+          </Key>
+          <Property Name="CP_ID" Type="int" Nullable="false" />
+          <Property Name="Risk_CP_Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Counterparty_Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CP_Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblUsage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CounterpartyId" Type="int" />
+          <Property Name="ExposureDate" Type="datetime" />
+          <Property Name="TradingLine" Type="nvarchar" MaxLength="128" />
+          <Property Name="Exposure" Type="float" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Counterparties" EntityType="EFModel.Counterparty" />
+          <EntitySet Name="Usages" EntityType="EFModel.Usage" />
+        </EntityContainer>
+        <EntityType Name="Counterparty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CounterpartyId" />
+          <Property Type="Double" Name="Exposure" />
+          <Property Type="DateTime" Name="ExposureDate" Nullable="false" />
+          <Property Type="String" Name="TradingLine" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EFEntities">
+          <EntitySetMapping Name="Counterparties"><EntityTypeMapping TypeName="EFModel.Counterparty"><MappingFragment StoreEntitySet="tblCounterpartyMain">
+            <ScalarProperty Name="Id" ColumnName="CP_ID" />
+            <ScalarProperty Name="Code" ColumnName="Risk_CP_Code" />
+            <ScalarProperty Name="Name" ColumnName="Counterparty_Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Usages">
+            <EntityTypeMapping TypeName="IsTypeOf(EFModel.Usage)">
+              <MappingFragment StoreEntitySet="tblUsage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Exposure" ColumnName="Exposure" />
+                <ScalarProperty Name="TradingLine" ColumnName="TradingLine" />
+                <ScalarProperty Name="ExposureDate" ColumnName="ExposureDate" />
+                <ScalarProperty Name="CounterpartyId" ColumnName="CounterpartyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EFModelExisting">
+        <EntityTypeShape EntityType="EFModel.Counterparty" Width="1.5" PointX="0.75" PointY="0.875" Height="1.61568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFModel.Usage" Width="1.5" PointX="3.25" PointY="0.625" Height="1.9802864583333331" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

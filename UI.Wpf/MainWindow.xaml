@@ -1,0 +1,73 @@
+﻿<Window x:Class="Owlsure.UI.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rgn="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
+        xmlns:gbl="clr-namespace:Owlsure.Globals;assembly=Owlsure.Globals"
+        xmlns:popup="clr-namespace:Owlsure.UI.Wpf.PopupBehavior"
+        popup:RegionPopupBehavior.CreatePopupRegionWithName="{x:Static gbl:RegionNames.PopupRegion}"
+        Title="Owlsure" Icon="/Owlsure;component/Images/Penguins.jpg"
+        Width="1000">
+    <Window.Resources>
+        <Style x:Key="ContextMenuItemStyle">
+            <Setter Property="MenuItem.Header" Value="{Binding Text}"/>
+            <Setter Property="MenuItem.ItemsSource" Value="{Binding Children}"/>
+            <Setter Property="MenuItem.Command" Value="{Binding Command}" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Menu IsMainMenu="True" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding MenuEntries}"
+              Margin="0,0,0,0" 
+              Height="Auto" Foreground="White"
+              ItemContainerStyle="{StaticResource ContextMenuItemStyle}"
+              VerticalAlignment="Top" Background="#FF000000">
+        </Menu>
+
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="3" Background="{StaticResource skin}">
+            <ListBox ItemsSource="{Binding MenuEntries}" Background="{StaticResource skin}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal">
+                        </StackPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding Command}" Content="{Binding Text}" Background="White" Margin="5" Padding="5,8" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ToolBar>
+
+        <GridSplitter Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="5"/>
+
+        <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource OwlsureBorder}">
+            <ContentControl
+                HorizontalAlignment="Stretch"
+                rgn:RegionManager.RegionName="{x:Static gbl:RegionNames.LeftRegion}">
+            </ContentControl>
+        </Border>
+
+        <Border Grid.Column="3" Grid.Row="2" Style="{StaticResource OwlsureBorder}">
+            <DockPanel
+                >
+                <ContentControl
+                HorizontalContentAlignment="Stretch"
+                rgn:RegionManager.RegionName="{x:Static gbl:RegionNames.RightRegion}">
+                </ContentControl>
+            </DockPanel>
+        </Border>
+
+    </Grid>
+</Window>

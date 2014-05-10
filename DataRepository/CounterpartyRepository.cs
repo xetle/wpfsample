@@ -7,7 +7,7 @@ using Owlsure.EFDataLayer;
 
 namespace Owlsure.DataRepository
 {
-    public class CounterpartyRepository: ICounterpartyRepository
+    public class CounterpartyRepository : ICounterpartyRepository
     {
         public List<EFDataLayer.Counterparty> ListAll()
         {
@@ -16,14 +16,25 @@ namespace Owlsure.DataRepository
                 return context.Counterparties.OrderBy(c => c.Name).ToList();
             }
         }
+
+        public int Add(EFDataLayer.Counterparty counterparty)
+        {
+            using (var context = new EFDataLayer.EFEntities())
+            {
+                context.Counterparties.Add(counterparty);
+                context.SaveChanges();
+                return counterparty.Id;
+            }
+        }
     }
 
     public class MockCounterpartyRepository : ICounterpartyRepository
     {
-        public List<EFDataLayer.Counterparty> ListAll()
-        {
-            List<EFDataLayer.Counterparty> counterparties = new List<EFDataLayer.Counterparty>();
+        private List<EFDataLayer.Counterparty> counterparties;
 
+        public MockCounterpartyRepository()
+        {
+            counterparties = new List<EFDataLayer.Counterparty>();
             for (int i = 0; i < 100; i++)
             {
                 EFDataLayer.Counterparty counterparty = new Counterparty();
@@ -34,7 +45,19 @@ namespace Owlsure.DataRepository
                 counterparties.Add(counterparty);
             }
 
+        }
+
+        public List<EFDataLayer.Counterparty> ListAll()
+        {
             return counterparties;
+        }
+
+        public int Add(EFDataLayer.Counterparty counterparty)
+        {
+            counterparty.Id = counterparties.Count() + 1;
+            counterparties.Add(counterparty);
+
+            return counterparty.Id;
         }
     }
 }

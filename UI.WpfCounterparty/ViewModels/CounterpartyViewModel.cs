@@ -21,6 +21,8 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
         private IEventAggregator eventAggregator;
         private ObservableCollection<Counterparty> counterparties;
         private ICommand selectionChangedCommand;
+        private ICommand addCommand;
+        private ICommand saveCommand;
 
         public CounterpartyViewModel(
             ICounterpartyService dataService,
@@ -29,6 +31,18 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
             this.dataService = dataService;
             this.eventAggregator = eventAggregator;
             this.counterparties = new ObservableCollection<Counterparty>(dataService.FindAll());
+
+            this.addCommand = new DelegateCommand(() =>
+            {
+                NewCounterparty = Counterparty.CreateNewCounterparty();
+            });
+
+            this.saveCommand = new DelegateCommand(() =>
+            {
+                dataService.Add(NewCounterparty);
+                this.Counterparties = new ObservableCollection<Counterparty>(dataService.FindAll());
+                RaisePropertyChanged("Counterparties");
+            });
 
             if (counterparties.Count() > 0)
             {
@@ -55,6 +69,19 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
                 return selectionChangedCommand;
             }
         }
+
+        public ICommand AddCommand
+        {
+            get { return addCommand; }
+            set { addCommand = value; }
+        }
+
+        public ICommand SaveCommand
+        {
+            get { return saveCommand; }
+            set { saveCommand = value; }
+        }
+
         void OnCounterpartyChanged(Counterparty newCounterparty)
         {
             if (newCounterparty != null)
@@ -74,6 +101,17 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
             { 
                 selectedCounterparty = value;
                 RaisePropertyChanged("SelectedCounterparty");
+            }
+        }
+
+        private Counterparty newCounterparty;
+        public Counterparty NewCounterparty
+        {
+            get { return newCounterparty; }
+            set
+            {
+                newCounterparty = value;
+                RaisePropertyChanged("NewCounterparty");
             }
         }
 

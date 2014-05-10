@@ -38,7 +38,11 @@ namespace Owlsure.DataServices
 
         public void Add(Counterparty counterparty)
         {
-            throw new NotImplementedException();
+            var cp = new EFDataLayer.Counterparty();
+            cp.Code = counterparty.Code;
+            cp.Name = counterparty.Name;
+
+            counterparty.Id = counterpartyRepository.Add(cp);
         }
     }
 }

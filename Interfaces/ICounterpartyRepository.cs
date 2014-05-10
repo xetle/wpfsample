@@ -13,5 +13,6 @@ namespace Owlsure.Interfaces
     public interface ICounterpartyRepository
     {
         List<EFDataLayer.Counterparty> ListAll();
+        int Add(EFDataLayer.Counterparty data);
     }
 }

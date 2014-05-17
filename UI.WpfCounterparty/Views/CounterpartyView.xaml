@@ -70,7 +70,10 @@
         <VisualStateManager.CustomVisualStateManager>
             <ei:ExtendedVisualStateManager/>
         </VisualStateManager.CustomVisualStateManager>
-        <Grid x:Name="grid"  Background="{StaticResource skin}" Height="130">
+        <Grid x:Name="grid" Height="130">
+            <Grid.Background>
+                <SolidColorBrush Color="White"  Opacity="0" />
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto" MinWidth="200"/>
@@ -98,10 +101,10 @@
             </ComboBox>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Code:" />
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCounterparty.Code}"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCounterparty.Code}" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Name:" />
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding SelectedCounterparty.Name}"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding SelectedCounterparty.Name}" />
             <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="2">
                 <Button Content="Add" Command="{Binding AddCommand}" >
                     <i:Interaction.Triggers>

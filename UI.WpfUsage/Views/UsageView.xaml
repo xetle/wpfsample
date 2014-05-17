@@ -9,20 +9,21 @@
              xmlns:ei="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
              mc:Ignorable="d"
              Name="MainWindow"
-             d:DataContext="{d:DesignInstance vmd:DesignTimeUsageViewModel, IsDesignTimeCreatable=True}">
+             d:DataContext="{d:DesignInstance vmd:DesignTimeUsageViewModel, IsDesignTimeCreatable=True}"
+             Background="Transparent">
     <UserControl.Resources>
         <Style x:Key="NumberCellStyle" TargetType="DataGridCell">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="Padding" Value="5" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
             <Setter Property="FontSize" Value="12" />
         </Style>
         <Style x:Key="DateCellStyle" TargetType="DataGridCell">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="Padding" Value="5" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -56,7 +57,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Background="{StaticResource skin}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
             <CheckBox
                 x:Name="chkBox" Margin="5">
                 <CheckBox.Template>
@@ -95,12 +96,10 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </CheckBox>
-            <TextBlock HorizontalAlignment="Stretch" FontWeight="Bold"  FontSize="16" Padding="3" Margin="2" Background="Transparent" Text="{Binding CounterpartyName}" VerticalAlignment="Center" />
+            <TextBlock HorizontalAlignment="Stretch" FontWeight="Bold"  FontSize="16" Padding="3" Margin="2" Text="{Binding CounterpartyName}" VerticalAlignment="Center" />
         </StackPanel>
-        <DataGrid 
-            AlternatingRowBackground="{StaticResource skin}"
-            RowBackground="{StaticResource skin}"
-            Background="{StaticResource skin}"
+        <DataGrid
+            Background="Transparent"
             AutoGenerateColumns="False"
             Grid.Row="1"
             VirtualizingStackPanel.IsVirtualizing="True"
@@ -110,7 +109,6 @@
             >
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="{StaticResource skin}" />
                     <Setter Property="Margin" Value="5" />
                     <Setter Property="Padding" Value="5" />
                     <Setter Property="FontSize" Value="14" />

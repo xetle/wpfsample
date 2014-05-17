@@ -6,7 +6,11 @@
         xmlns:popup="clr-namespace:Owlsure.UI.Wpf.PopupBehavior"
         popup:RegionPopupBehavior.CreatePopupRegionWithName="{x:Static gbl:RegionNames.PopupRegion}"
         Title="Owlsure" Icon="/Owlsure;component/Images/Penguins.jpg"
-        Width="1000">
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Width="1024" Height="768">
+    <Window.Background>
+        <ImageBrush ImageSource="Images\background.png" Stretch="UniformToFill" />
+    </Window.Background>
     <Window.Resources>
         <Style x:Key="ContextMenuItemStyle">
             <Setter Property="MenuItem.Header" Value="{Binding Text}"/>
@@ -34,8 +38,8 @@
               VerticalAlignment="Top" Background="#FF000000">
         </Menu>
 
-        <ToolBar Grid.Row="1" Grid.ColumnSpan="3" Background="{StaticResource skin}">
-            <ListBox ItemsSource="{Binding MenuEntries}" Background="{StaticResource skin}">
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="3" Background="Transparent">
+            <ListBox ItemsSource="{Binding MenuEntries}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -52,14 +56,14 @@
 
         <GridSplitter Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="5"/>
 
-        <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource OwlsureBorder}">
+        <Border Grid.Column="0" Grid.Row="2">
             <ContentControl
                 HorizontalAlignment="Stretch"
                 rgn:RegionManager.RegionName="{x:Static gbl:RegionNames.LeftRegion}">
             </ContentControl>
         </Border>
 
-        <Border Grid.Column="3" Grid.Row="2" Style="{StaticResource OwlsureBorder}">
+        <Border Grid.Column="3" Grid.Row="2">
             <DockPanel
                 >
                 <ContentControl

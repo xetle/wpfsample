@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Background="Transparent"
              mc:Ignorable="d" MinWidth="400" 
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignData Source=DesignTimeData.xaml}">
@@ -38,9 +39,6 @@
                 <DataTrigger Binding="{Binding IsBreach}" Value="True">
                     <Setter Property="Background" Value="Red" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding IsBreach}" Value="False">
-                    <Setter Property="Background" Value="White" />
-                </DataTrigger>
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
@@ -61,7 +59,7 @@
     </UserControl.Triggers>
     
     <StackPanel>
-        <ListBox Grid.IsSharedSizeScope="True" ItemsSource="{Binding Usages}">
+        <ListBox Background="Transparent" Grid.IsSharedSizeScope="True" ItemsSource="{Binding Usages}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

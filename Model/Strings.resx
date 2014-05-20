@@ -129,4 +129,8 @@
     <value>Name is missing</value>
     <comment>Error message for when a Counterparty is missing a name.</comment>
   </data>
+  <data name="Counterparty_Error_UnapprovedBank" xml:space="preserve">
+    <value>Unapproved Bank</value>
+    <comment>Error message for an unapproved bank.</comment>
+  </data>
 </root>

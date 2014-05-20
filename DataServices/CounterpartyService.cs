@@ -42,7 +42,10 @@ namespace Owlsure.DataServices
             cp.Code = counterparty.Code;
             cp.Name = counterparty.Name;
 
-            counterparty.Id = counterpartyRepository.Add(cp);
+            if (counterparty.IsValid)
+            {
+                counterparty.Id = counterpartyRepository.Add(cp);
+            }
         }
     }
 }

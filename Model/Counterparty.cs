@@ -23,7 +23,7 @@ namespace Owlsure.Model
             return new Counterparty();
         }
 
-        protected Counterparty() 
+        protected Counterparty()
         {
         }
 
@@ -39,7 +39,19 @@ namespace Owlsure.Model
         /// <summary>
         /// Gets or Sets the counterparty Name
         /// </summary>
-        public string Name { get; set; }
+        private string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                RaisePropertyChanged("Name");
+            }
+        }
 
         private string code;
         /// <summary>
@@ -61,7 +73,7 @@ namespace Owlsure.Model
         #endregion
 
         #region IDataErrorInfo Members
-        
+
         string IDataErrorInfo.Error
         {
             get { return null; }
@@ -93,7 +105,6 @@ namespace Owlsure.Model
 
         static readonly string[] ValidatedProperties =
         {
-            "Id",
             "Code",
             "Name"
         };
@@ -144,6 +155,10 @@ namespace Owlsure.Model
             if (IsStringMissing(this.Name))
             {
                 return Strings.Counterparty_Error_MissingName;
+            }
+            else if (this.Name == "Joes")
+            {
+                return Strings.Counterparty_Error_UnapprovedBank;
             }
             else
             {

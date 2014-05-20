@@ -86,5 +86,14 @@ namespace Owlsure.Model {
                 return ResourceManager.GetString("Counterparty_Error_MissingName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unapproved Bank.
+        /// </summary>
+        internal static string Counterparty_Error_UnapprovedBank {
+            get {
+                return ResourceManager.GetString("Counterparty_Error_UnapprovedBank", resourceCulture);
+            }
+        }
     }
 }

@@ -21,8 +21,8 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
         private IEventAggregator eventAggregator;
         private ObservableCollection<Counterparty> counterparties;
         private ICommand selectionChangedCommand;
-        private ICommand addCommand;
-        private ICommand saveCommand;
+        private DelegateCommand addCommand;
+        private DelegateCommand saveCommand;
 
         public CounterpartyViewModel(
             ICounterpartyService dataService,
@@ -32,17 +32,29 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
             this.eventAggregator = eventAggregator;
             this.counterparties = new ObservableCollection<Counterparty>(dataService.FindAll());
 
-            this.addCommand = new DelegateCommand(() =>
-            {
-                NewCounterparty = Counterparty.CreateNewCounterparty();
-            });
+            this.addCommand = new DelegateCommand(
+                () =>
+                {
+                    NewCounterparty = Counterparty.CreateNewCounterparty();
+                    NewCounterparty.PropertyChanged += (s, e) =>
+                    {
+                        saveCommand.RaiseCanExecuteChanged();
+                    };
+                }
+            );
 
-            this.saveCommand = new DelegateCommand(() =>
-            {
-                dataService.Add(NewCounterparty);
-                this.Counterparties = new ObservableCollection<Counterparty>(dataService.FindAll());
-                RaisePropertyChanged("Counterparties");
-            });
+            this.saveCommand = new DelegateCommand(
+                () =>
+                {
+                    dataService.Add(NewCounterparty);
+                    this.Counterparties = new ObservableCollection<Counterparty>(dataService.FindAll());
+                    RaisePropertyChanged("Counterparties");
+                },
+                () =>
+                {
+                    return (NewCounterparty == null) ? false : NewCounterparty.IsValid;
+                }
+            );
 
             if (counterparties.Count() > 0)
             {
@@ -51,7 +63,7 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
                 evt.Publish(SelectedCounterparty);
             }
         }
-        
+
         public ObservableCollection<Counterparty> Counterparties
         {
             get { return counterparties; }
@@ -73,13 +85,11 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
         public ICommand AddCommand
         {
             get { return addCommand; }
-            set { addCommand = value; }
         }
 
         public ICommand SaveCommand
         {
             get { return saveCommand; }
-            set { saveCommand = value; }
         }
 
         void OnCounterpartyChanged(Counterparty newCounterparty)
@@ -97,8 +107,8 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
         public Counterparty SelectedCounterparty
         {
             get { return selectedCounterparty; }
-            set 
-            { 
+            set
+            {
                 selectedCounterparty = value;
                 RaisePropertyChanged("SelectedCounterparty");
             }
@@ -112,6 +122,7 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
             {
                 newCounterparty = value;
                 RaisePropertyChanged("NewCounterparty");
+                addCommand.RaiseCanExecuteChanged();
             }
         }
 

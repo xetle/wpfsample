@@ -49,6 +49,10 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
                     dataService.Add(NewCounterparty);
                     this.Counterparties = new ObservableCollection<Counterparty>(dataService.FindAll());
                     RaisePropertyChanged("Counterparties");
+
+                    // Don't use the NewCounterparty object as it won't be in the Counterparties list
+                    var newCounterparty = this.Counterparties.Where(c => c.Id == NewCounterparty.Id).Single(); 
+                    OnCounterpartyChanged(newCounterparty);
                 },
                 () =>
                 {

@@ -80,11 +80,15 @@
             </Grid.RowDefinitions>
 
             <ComboBox
-                            Grid.ColumnSpan="2"
-                            IsSynchronizedWithCurrentItem="True"
-                            ItemsSource="{Binding Counterparties}"
-                            cmd:SelectorSelect.Command="{Binding SelectionChangedCommand}"
-                            cmd:SelectorSelect.CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=Self}}">
+                Grid.ColumnSpan="2"
+                ItemsSource="{Binding Counterparties}"
+                SelectedItem="{Binding SelectedCounterparty}" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" 
+                                               CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}}"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <Border HorizontalAlignment="Stretch" Padding="2" Margin="2" BorderBrush="Blue" BorderThickness="1" CornerRadius="4">

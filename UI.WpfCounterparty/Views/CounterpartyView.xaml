@@ -45,7 +45,7 @@
                 <VisualState x:Name="VisualStateNormal">
                     <Storyboard x:Name="Default">
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="130"/>
+                            <EasingDoubleKeyFrame KeyTime="0" Value="150"/>
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -55,7 +55,7 @@
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid1">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="130"/>
+                            <EasingDoubleKeyFrame KeyTime="0" Value="150"/>
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -64,7 +64,7 @@
         <VisualStateManager.CustomVisualStateManager>
             <ei:ExtendedVisualStateManager/>
         </VisualStateManager.CustomVisualStateManager>
-        <Grid x:Name="grid" Height="130">
+        <Grid x:Name="grid" Height="150">
             <Grid.Background>
                 <SolidColorBrush Color="White"  Opacity="0" />
             </Grid.Background>
@@ -103,7 +103,7 @@
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Name:" />
             <Label Grid.Row="2" Grid.Column="1" Content="{Binding SelectedCounterparty.Name}" />
-            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="3">
                 <Button Content="Add" Command="{Binding AddCommand}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">

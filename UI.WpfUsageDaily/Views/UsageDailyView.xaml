@@ -59,7 +59,7 @@
     </UserControl.Triggers>
     
     <StackPanel>
-        <ListBox Background="Transparent" Grid.IsSharedSizeScope="True" ItemsSource="{Binding Usages}">
+        <ListBox BorderThickness="0" Background="Transparent" Grid.IsSharedSizeScope="True" ItemsSource="{Binding Usages}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

@@ -33,13 +33,13 @@
 
         <Menu IsMainMenu="True" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding MenuEntries}"
               Margin="0,0,0,0" 
-              Height="Auto" Foreground="White"
+              Height="Auto"
               ItemContainerStyle="{StaticResource ContextMenuItemStyle}"
-              VerticalAlignment="Top" Background="#FF000000">
+              VerticalAlignment="Top">
         </Menu>
 
-        <ToolBar Grid.Row="1" Grid.ColumnSpan="3" Background="Transparent">
-            <ListBox ItemsSource="{Binding MenuEntries}">
+        <ToolBar Background="Transparent" Grid.Row="1" Grid.ColumnSpan="3">
+            <ListBox BorderThickness="0" Background="Transparent" ItemsSource="{Binding MenuEntries}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -48,7 +48,7 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Button Command="{Binding Command}" Content="{Binding Text}" Background="White" Margin="5" Padding="5,8" />
+                        <Button Command="{Binding Command}" Content="{Binding Text}" Margin="5" Padding="5,8" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

@@ -25,7 +25,17 @@
             <Setter Property="Padding" Value="5" />
             <Setter Property="Foreground" Value="Black" />
         </Style>
+        <Storyboard x:Key="OnLoaded1">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="firstExposure">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -115,7 +125,13 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        <StackPanel Background="Orange" x:Name="firstExposure" Grid.Row="2" Height="0">
+        <StackPanel x:Name="firstExposure" Grid.Row="2" Height="40">
+        	<StackPanel.Background>
+        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<GradientStop Color="#FFEEE3E3" Offset="0.616"/>
+        			<GradientStop Color="#FFBDA7A7" Offset="0.81"/>
+        		</LinearGradientBrush>
+        	</StackPanel.Background>
             <TextBlock Text="{Binding Usage.UsageRows[0][0].Exposure, StringFormat=\{0\:n0\}}" 
                        FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
         </StackPanel>

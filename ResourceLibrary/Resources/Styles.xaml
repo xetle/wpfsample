@@ -293,10 +293,10 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Grid Margin="5" MinHeight="40" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                    <Grid x:Name="grid" Margin="5" MinHeight="40" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
                         <Rectangle x:Name="innerRectangle" Fill="{TemplateBinding Background}" HorizontalAlignment="Stretch" Stroke="{Binding Transparent}" VerticalAlignment="Stretch" RadiusX="20" RadiusY="20" StrokeThickness="20"/>
                         <Rectangle x:Name="outerRectangle" Fill="Transparent" RadiusY="20" RadiusX="20" Stroke="{TemplateBinding Background}" StrokeThickness="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                        <DockPanel>
+                        <DockPanel x:Name="dockPanel">
                             <ContentPresenter x:Name="myContentPresenter" 
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                               RecognizesAccessKey="True" 
@@ -329,9 +329,23 @@
                         <EventTrigger RoutedEvent="ButtonBase.Click">
                             <BeginStoryboard x:Name="OnClick1_BeginStoryboard" Storyboard="{StaticResource OnClick1}"/>
                         </EventTrigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="Stroke" TargetName="outerRectangle" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                        </Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Opacity" TargetName="grid" Value="0.5"/>
+							<Setter Property="Background" TargetName="dockPanel">
+								<Setter.Value>
+									<ImageBrush TileMode="FlipX"/>
+								</Setter.Value>
+							</Setter>
+							<Setter Property="Fill" TargetName="outerRectangle">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="Black" Offset="0"/>
+										<GradientStop Color="White" Offset="1"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							
+						</Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" TargetName="glassCube" Value="1"/>
                             <Setter Property="Stroke" TargetName="outerRectangle" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>

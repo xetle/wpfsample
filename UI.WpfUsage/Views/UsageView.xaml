@@ -30,6 +30,17 @@
         		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
         	</DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <ControlTemplate x:Key="CheckBoxDataStateBehavior" TargetType="{x:Type CheckBox}">
+        	<Image Height="48" x:Name="imgOwl" Stretch="Fill" Width="48" Source="/Owlsure.UI.WpfUsage;component/Images/magglass.jpg" Opacity="0.5" />
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="IsChecked" Value="True">
+        			<Setter TargetName="imgOwl" Property="Opacity" Value="1" />
+        		</Trigger>
+        		<Trigger Property="IsChecked" Value="False">
+        			<Setter TargetName="imgOwl" Property="Opacity" Value="0.5" />
+        		</Trigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
     </UserControl.Resources>
 	<UserControl.Triggers>
 		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -66,23 +77,49 @@
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
+            <VisualStateGroup x:Name="VisualStateGroupDataStateBehavior">
+            	<VisualStateGroup.Transitions>
+            		<VisualTransition GeneratedDuration="0:0:1"/>
+            	</VisualStateGroup.Transitions>
+            	<VisualState x:Name="VisualStateChecked">
+            		<Storyboard>
+            			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Background)" Storyboard.TargetName="textBlock">
+            				<DiscreteObjectKeyFrame KeyTime="0">
+            					<DiscreteObjectKeyFrame.Value>
+            						<SolidColorBrush Color="#FFF3EA8D"/>
+            					</DiscreteObjectKeyFrame.Value>
+            				</DiscreteObjectKeyFrame>
+            			</ObjectAnimationUsingKeyFrames>
+            			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="textBlock">
+            				<EasingDoubleKeyFrame KeyTime="0" Value="360"/>
+            			</DoubleAnimationUsingKeyFrames>
+            			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBlock">
+            				<EasingDoubleKeyFrame KeyTime="0" Value="100"/>
+            			</DoubleAnimationUsingKeyFrames>
+            			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="textBlock">
+            				<EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+            			</DoubleAnimationUsingKeyFrames>
+            			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="textBlock">
+            				<EasingDoubleKeyFrame KeyTime="0" Value="1.3"/>
+            			</DoubleAnimationUsingKeyFrames>
+            			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)" Storyboard.TargetName="textBlock">
+            				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            			</DoubleAnimationUsingKeyFrames>
+            			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleY)" Storyboard.TargetName="textBlock">
+            				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            			</DoubleAnimationUsingKeyFrames>
+            			<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="textBlock">
+            				<EasingPointKeyFrame KeyTime="0" Value="0.1,0.1"/>
+            			</PointAnimationUsingKeyFrames>
+            		</Storyboard>
+				</VisualState>
+            	<VisualState x:Name="VisualStateNotChecked">
+            	</VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
             <CheckBox
-                x:Name="chkBox" Margin="5">
-                <CheckBox.Template>
-                    <ControlTemplate TargetType="CheckBox">
-                        <Image Height="48" Name="imgOwl" Stretch="Fill" Width="48" Source="/Owlsure.UI.WpfUsage;component/Images/owl.jpg" Opacity="0.5" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="imgOwl" Property="Opacity" Value="1" />
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter TargetName="imgOwl" Property="Opacity" Value="0.5" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </CheckBox.Template>
+                x:Name="chkBox" Margin="5" Template="{DynamicResource CheckBoxDataStateBehavior}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
                         <i:Interaction.Behaviors>
@@ -125,15 +162,29 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        <StackPanel x:Name="firstExposure" Grid.Row="2" Height="40">
+		<StackPanel x:Name="firstExposure" Grid.Row="2" Orientation="Horizontal">
         	<StackPanel.Background>
         		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
         			<GradientStop Color="#FFEEE3E3" Offset="0.616"/>
         			<GradientStop Color="#FFBDA7A7" Offset="0.81"/>
         		</LinearGradientBrush>
         	</StackPanel.Background>
-            <TextBlock Text="{Binding Usage.UsageRows[0][0].Exposure, StringFormat=\{0\:n0\}}" 
-                       FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        </StackPanel>
+			<CheckBox x:Name="checkBox" VerticalAlignment="Center" Padding="10,10,10,10"  Margin="50,10,10,10" Template="{DynamicResource CheckBoxDataStateBehavior}">
+				<i:Interaction.Behaviors>
+					<ei:DataStateBehavior Binding="{Binding IsChecked, ElementName=checkBox}" Value="true" TrueState="VisualStateChecked" FalseState="VisualStateNotChecked"/>
+				</i:Interaction.Behaviors>
+			</CheckBox>
+			<TextBlock x:Name="textBlock" Padding="10" Text="{Binding Usage.UsageRows[0][0].Exposure, StringFormat=\{0\:n0\}}" 
+						FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="50,20,20,20">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+		</StackPanel>
     </Grid>
     </UserControl>

@@ -40,6 +40,8 @@ namespace Owlsure.UI.WpfCounterparty.ViewModels
                     {
                         saveCommand.RaiseCanExecuteChanged();
                     };
+                    // when first displayed the new counterparty will be invalid so we should disable the Save button
+                    saveCommand.RaiseCanExecuteChanged();
                 }
             );
 

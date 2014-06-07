@@ -31,6 +31,8 @@ namespace Owlsure.UI.WpfUsageDaily.Views
             };
         }
 
+        public string Header { get { return "Graph"; } }
+
         private void amChart_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Debug.WriteLine("Here");

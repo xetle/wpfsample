@@ -23,6 +23,8 @@ namespace Owlsure.UI.WpfUsage.ViewModels
         private IMenuService menuService;
         private IRegionManager regionManager;
 
+        private const string viewName = "Usage";
+
         public UsageViewModel(IEventAggregator eventAggregator, IUsageService usageService, IMenuService menuService, IRegionManager regionManager)
         {
             this.eventAggregator = eventAggregator;
@@ -35,7 +37,7 @@ namespace Owlsure.UI.WpfUsage.ViewModels
 
             showUsageCommand = new DelegateCommand(ShowUsage);
 
-            menuService.RegisterMenu(new MenuEntry() { Text = "Usage", Command = showUsageCommand });
+            menuService.RegisterMenu(new MenuEntry() { Text = viewName, Command = showUsageCommand });
         }
 
         private ICommand showUsageCommand;

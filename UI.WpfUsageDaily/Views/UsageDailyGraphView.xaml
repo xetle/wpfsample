@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:amq="http://schemas.amcharts.com/quick/wpf/2010/xaml"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    		 xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
+		<sys:String x:Key="Header">Graph</sys:String>
 		<Storyboard x:Key="storyBoard">
 			<DoubleAnimation 
                 Storyboard.TargetProperty="Opacity"

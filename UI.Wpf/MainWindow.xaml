@@ -4,6 +4,7 @@
         xmlns:rgn="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
         xmlns:gbl="clr-namespace:Owlsure.Globals;assembly=Owlsure.Globals"
         xmlns:popup="clr-namespace:Owlsure.UI.Wpf.PopupBehavior"
+    		 xmlns:sys="clr-namespace:System;assembly=mscorlib"
         popup:RegionPopupBehavior.CreatePopupRegionWithName="{x:Static gbl:RegionNames.PopupRegion}"
         Title="Owlsure" Icon="/Owlsure;component/Images/Penguins.jpg"
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
@@ -16,6 +17,9 @@
             <Setter Property="MenuItem.Header" Value="{Binding Text}"/>
             <Setter Property="MenuItem.ItemsSource" Value="{Binding Children}"/>
             <Setter Property="MenuItem.Command" Value="{Binding Command}" />
+        </Style>
+        <Style x:Key="ShellTabItemStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="Header" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content.Header}"/>
         </Style>
     </Window.Resources>
 
@@ -66,10 +70,12 @@
         <Border Grid.Column="3" Grid.Row="2">
             <DockPanel
                 >
-                <ContentControl
-                HorizontalContentAlignment="Stretch"
-                rgn:RegionManager.RegionName="{x:Static gbl:RegionNames.RightRegion}">
-                </ContentControl>
+                <TabControl
+                    Background="Transparent"
+                    HorizontalContentAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ShellTabItemStyle}"
+                    rgn:RegionManager.RegionName="{x:Static gbl:RegionNames.RightRegion}">
+                </TabControl>
             </DockPanel>
         </Border>
 

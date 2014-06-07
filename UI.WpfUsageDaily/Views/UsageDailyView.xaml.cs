@@ -29,5 +29,6 @@ namespace Owlsure.UI.WpfUsageDaily.Views
                 this.DataContext = viewModel;
             };
         }
+        public string Header { get { return "Daily Usage"; } }
     }
 }

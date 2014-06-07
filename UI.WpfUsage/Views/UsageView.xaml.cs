@@ -29,5 +29,7 @@ namespace Owlsure.UI.WpfUsage.Views
                 this.DataContext = viewModel;
             };
         }
+
+        public string Header { get { return "Usage"; } }
     }
 }

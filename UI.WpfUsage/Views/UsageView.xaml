@@ -7,11 +7,13 @@
              xmlns:vmd="clr-namespace:Owlsure.UI.WpfUsage.ViewModels"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:ei="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    		 xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              Name="MainWindow"
              d:DataContext="{d:DesignInstance vmd:DesignTimeUsageViewModel, IsDesignTimeCreatable=True}"
              Background="Transparent">
     <UserControl.Resources>
+        <sys:String x:Key="Header">Usage</sys:String>
         <Style x:Key="NumberCellStyle" TargetType="DataGridCell">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Margin" Value="5" />

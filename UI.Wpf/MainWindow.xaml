@@ -19,8 +19,34 @@
             <Setter Property="MenuItem.Command" Value="{Binding Command}" />
         </Style>
         <Style x:Key="ShellTabItemStyle" TargetType="{x:Type TabItem}">
+			<Setter Property="Background" Value="Transparent"/>
             <Setter Property="Header" Value="{Binding RelativeSource={RelativeSource Self}, Path=Content.Header}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid Width="Auto" Height="Auto" x:Name="TabItemRoot">
+                            <Border x:Name="border" Margin="5,5,5,5" Padding="5,5,5,5" Background="#FFEADCDC"></Border>
+                            <ContentPresenter Margin="10" x:Name="Content" ContentSource="Header" RecognizesAccessKey="True"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Content" Property="Opacity" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="false">
+                                <Setter TargetName="Content" Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+        <DataTemplate x:Key="DataTemplateHeader">
+        	<Grid Background="Transparent">
+        		<Label HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                           Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" 
+                           VerticalAlignment="Stretch" Margin="5" Background="#FFDEC9C9"/>
+        	</Grid>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -73,7 +99,7 @@
                 <TabControl
                     Background="Transparent"
                     HorizontalContentAlignment="Stretch"
-                    ItemContainerStyle="{StaticResource ShellTabItemStyle}"
+                    ItemContainerStyle="{DynamicResource ShellTabItemStyle}"
                     rgn:RegionManager.RegionName="{x:Static gbl:RegionNames.RightRegion}">
                 </TabControl>
             </DockPanel>

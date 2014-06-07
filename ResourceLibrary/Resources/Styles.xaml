@@ -293,18 +293,18 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Grid x:Name="grid" Margin="5" MinHeight="40" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                    <Grid x:Name="grid" Margin="5" MinHeight="40" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Rectangle x:Name="innerRectangle" Fill="{TemplateBinding Background}" HorizontalAlignment="Stretch" Stroke="{Binding Transparent}" VerticalAlignment="Stretch" RadiusX="20" RadiusY="20" StrokeThickness="20"/>
                         <Rectangle x:Name="outerRectangle" Fill="Transparent" RadiusY="20" RadiusX="20" Stroke="{TemplateBinding Background}" StrokeThickness="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                        <DockPanel x:Name="dockPanel">
+                        <DockPanel x:Name="dockPanel" VerticalAlignment="Stretch">
                             <ContentPresenter x:Name="myContentPresenter" 
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                               RecognizesAccessKey="True" 
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                              Margin="10" Content="{TemplateBinding Content}" />
+                                              Margin="5" Content="{TemplateBinding Content}" />
                         </DockPanel>
-                        <Rectangle x:Name="glassCube" RadiusY="10" RadiusX="10" Stroke="{TemplateBinding Background}" StrokeThickness="2" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle x:Name="glassCube" RadiusY="5" RadiusX="5" Stroke="{TemplateBinding Background}" StrokeThickness="2" Opacity="0" RenderTransformOrigin="0.5,0.5">
                             <Rectangle.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
